@@ -10,48 +10,63 @@ html {
   font-size: 1.6rem;
 }
 
+body {
+	height: 100vh;
+	max-height: 100vh;
+}
+
 :root {
-  	--main-color: rgb(10, 46, 56);
+  --main-color: #0a2e38;
 	--top: 5rem;
 	--left: 10rem;
 }
 /* ---------- FIM RESET ----------
 ---------- INICIO MAIN ---------- */
-header {  
+header, section, form, fieldset div {  
 	display: flex;
+}
+
+header {
+	height: 10vh;
 	align-items: center;
 	justify-content: center;
+
 	color: #fff;
 	font-size: 3.2rem;
+
 	background-color: var(--main-color);
 }
 
 footer {
+	height: 10vh;
+	width: 100%;	
+	position: absolute;
+	bottom: 0;
+
   background-color: var(--main-color);
 }
 
 section {
-	display: flex;	
+	margin: var(--left) var(--top) ;
 }
 
 form {
-	display: flex;
+	width: 100%;	
+	max-width: calc(50% - var(--left));
 	flex-direction: column;
 	justify-content: space-between;
 	margin-left: var(--left);
 	margin-top: var(--top);
-	width: 100%;
-	max-width: calc(50% - var(--left));
 }
 
 fieldset legend {
   margin-left: var(--left);
+
 	font-size: 3.2rem;
 	font-weight: bold;
 }
 
 fieldset div {
-	display: flex;
 	width: 100%;
 	justify-content: space-between;
 	align-items: baseline;
@@ -69,5 +84,6 @@ label {
 	width: 100%;
 	max-width: 15%;
 	margin: 0 var(--left);
+
 	font-size: 2.4rem;
 }
