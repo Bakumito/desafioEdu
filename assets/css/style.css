@@ -12,19 +12,18 @@ html {
 
 :root {
   	--main-color: rgb(10, 46, 56);
-	--top: 2.5rem;
-	--left: 5rem;
+	--top: 5rem;
+	--left: 10rem;
 }
 /* ---------- FIM RESET ----------
 ---------- INICIO MAIN ---------- */
-header {
+header {  
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	color: #fff;
 	font-size: 3.2rem;
-	margin: auto;
-	background: var(--main-color);
+	background-color: var(--main-color);
 }
 
 footer {
@@ -36,18 +35,18 @@ section {
 }
 
 form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	margin-left: var(--left);
 	margin-top: var(--top);
 	width: 100%;
 	max-width: calc(50% - var(--left));
-	padding: auto;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 }
 
 fieldset legend {
-	font-size: 1.8rem;
+  margin-left: var(--left);
+	font-size: 3.2rem;
 	font-weight: bold;
 }
 
@@ -55,20 +54,20 @@ fieldset div {
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
-	align-items: center;
+	align-items: baseline;
 }
 
 input {
 	width: 100%;
 	height: var(--top);
-	max-width: calc(80% - 3rem);
-	margin: calc(var(--top)/2) calc(var(--top)/2) calc(var(--top)/2) calc(var(--top)/2);
+  max-width: 85%;
+  margin: calc(var(--top) / 2.5) var(--left) 0 0;
+  padding: 0 1rem;
 }
 
 label {
 	width: 100%;
-	max-width: calc(20% - 3rem);
-	margin-left: 3rem;
-	margin-right: 3rem;
-	font-weight: bold;
+	max-width: 15%;
+	margin: 0 var(--left);
+	font-size: 2.4rem;
 }
