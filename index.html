@@ -11,55 +11,84 @@
     <title>Document</title>
   </head>
   <body>
-    <header>algum cabeçalho</header>
+    <header>Cadastro de Produtos</header>
     <main>
-      <form
-        method="post"
-        action="........./novapagina........................."
-        target="_blank"
-      >
-        <fieldset>
-          <legend>Cadastro de Produtos</legend>
-          <div>
-            <label for="idProduto">ID</label>
-            <input type="number" nome="idProduto" />
-          </div>
-          <div>
-            <label for="descricaoProduto">Descrição</label>
-            <input type="text" name="descricaoProduto" />
-          </div>
-          <div>
-            <label for="categoriaProduto">Categoria</label>
-            <input type="text" name="categoriaProduto" />
-          </div>
-          <div>
-            <label for="pesoProduto">Peso</label>
-            <input type="number" name="pesoProduto" />
-          </div>
-          <div>
-            <label for="alturaProduto">Altura</label>
-            <input type="number" name="alturaProduto" />
-          </div>
-          <div>
-            <label for="larguraProduto">Largura</label>
-            <input type="number" name="larguraProduto" />
-          </div>
-          <div>
-            <label for="comprimentoProduto">Comprimento</label>
-            <input type="number" name="comprimentoProduto" />
-          </div>
-          <div>
-            <label for="estoqueProduto">Estoque</label>
-            <input type="number" name="estoqueProduto" />
-          </div>
-          <div>
-            <label for="dataCadastroProduto">Data do Cadastro</label>
-            <input type="date" name="dataCadastroProduto" />
-          </div>
+      <section>
+        <form
+          method="post"
+          action="........./novapagina........................."
+          target="_blank"
+        >
+          <fieldset>
+            <legend>Cadastro de Produtos</legend>
+            <div>
+              <label for="idProduto">ID</label>
+              <input type="number" nome="idProduto" />
+            </div>
+            <div>
+              <label for="descricaoProduto">Descrição</label>
+              <input type="text" name="descricaoProduto" />
+            </div>
+            <div>
+              <label for="categoriaProduto">Categoria</label>
+              <input type="text" name="categoriaProduto" />
+            </div>
+            <div>
+              <label for="pesoProduto">Peso</label>
+              <input type="number" name="pesoProduto" />
+            </div>
+            <div>
+              <label for="alturaProduto">Altura</label>
+              <input type="number" name="alturaProduto" />
+            </div>
+            <div>
+              <label for="larguraProduto">Largura</label>
+              <input type="number" name="larguraProduto" />
+            </div>
+            <div>
+              <label for="comprimentoProduto">Comprimento</label>
+              <input type="number" name="comprimentoProduto" />
+            </div>
+            <div>
+              <label for="estoqueProduto">Estoque</label>
+              <input type="number" name="estoqueProduto" />
+            </div>
+            <div>
+              <label for="dataCadastroProduto">Data do Cadastro</label>
+              <input type="date" name="dataCadastroProduto" />
+            </div>
 
-          <button type="submit">Enviar</button>
-        </fieldset>
-      </form>
+            <button id="formulario" type="submit">Prever</button>
+
+            <button id="formulario2" type="submit">Enviar</button>
+          </fieldset>
+        </form>
+        <div>
+          <table>
+            <caption>
+              tabela produtos
+            </caption>
+            <thead>
+              <tr>
+                <th>tituloTeste</th>
+                <th>tituloTeste2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>corpoTeste</td>
+                <td>corpoTeste2</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>rodapeTeste</td>
+                <td>rodapeTeste2</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
     </main>
     <footer>rodapé</footer>
   </body>
