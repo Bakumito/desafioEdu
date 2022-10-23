@@ -16,6 +16,7 @@
       <section>
         <div class="sectionForm">
           <form
+            id="formulario"
             method="post"
             action="........./novapagina........................."
             target="_blank"
@@ -24,44 +25,99 @@
               <legend>Cadastro de Produtos</legend>
               <div>
                 <label for="idProduto">ID</label>
-                <input type="number" nome="idProduto" />
+                <input id="idProduto" type="number" nome="idProduto" disabled />
               </div>
               <div>
                 <label for="descricaoProduto">Descrição</label>
-                <input type="text" name="descricaoProduto" />
+                <input
+                  id="descricaoProduto"
+                  type="text"
+                  name="descricaoProduto"
+                  placeholder="nome do produto"
+                  required
+                />
               </div>
               <div>
                 <label for="categoriaProduto">Categoria</label>
-                <input type="text" name="categoriaProduto" />
+                <input
+                  list="categorias"
+                  id="categoriaProduto"
+                  type="text"
+                  name="categoriaProduto"
+                  placeholder="--"
+                  required
+                />
+                <datalist id="categorias">
+                  <option value="Categoria1"></option>
+                  <option value="Categoria2"></option>
+                </datalist>
               </div>
+
               <div>
                 <label for="pesoProduto">Peso</label>
-                <input type="number" name="pesoProduto" />
+                <input
+                  id="pesoProduto"
+                  type="number"
+                  step="0.01"
+                  name="pesoProduto"
+                  placeholder="Peso em kg"
+                  required
+                />
               </div>
               <div>
                 <label for="alturaProduto">Altura</label>
-                <input type="number" name="alturaProduto" />
+                <input
+                  id="alturaProduto"
+                  type="number"
+                  step="0.01"
+                  name="alturaProduto"
+                  placeholder="Altura em metros"
+                  required
+                />
               </div>
               <div>
                 <label for="larguraProduto">Largura</label>
-                <input type="number" name="larguraProduto" />
+                <input
+                  id="larguraProduto"
+                  type="number"
+                  step="0.01"
+                  name="larguraProduto"
+                  placeholder="Largura em metros"
+                  required
+                />
               </div>
               <div>
                 <label for="comprimentoProduto">Comprimento</label>
-                <input type="number" name="comprimentoProduto" />
+                <input
+                  id="comprimentoProduto"
+                  type="number"
+                  step="0.01"
+                  name="comprimentoProduto"
+                  placeholder="Comprimento em metros"
+                  required
+                />
               </div>
               <div>
                 <label for="estoqueProduto">Estoque</label>
-                <input type="number" name="estoqueProduto" />
+                <input
+                  id="estoqueProduto"
+                  type="number"
+                  name="estoqueProduto"
+                  placeholder="Quantidade por caixa"
+                  required
+                />
               </div>
               <div>
                 <label for="dataCadastroProduto">Data do Cadastro</label>
-                <input type="date" name="dataCadastroProduto" />
+                <input
+                  id="dataCadastroProduto"
+                  type="date"
+                  name="dataCadastroProduto"
+                  required
+                />
               </div>
 
-              <button id="botaoCadastro" type="submit">Cadastrar</button>
-
-              <button id="formulario2" type="submit">Enviar</button>
+              <button type="submit">Cadastrar</button>
             </fieldset>
           </form>
         </div>
