@@ -39,11 +39,11 @@ header {
 }
 
 main {
-	height: 80%;
+	height: 85%;
 }
 
 footer {
-	height: 10%;
+	height: 5%;
 	
 	color: #fff;
 	font-size: 3.2rem;
@@ -56,13 +56,18 @@ section {
 	height: 100%;
 }
 
-section .sectionForm, section .sectionTable {
-	width: 50%;
+
+section .sectionTable, section .sectionForm {
 	height: 100%;
+	padding: var(--top) var(--left);
 }
 
-section .sectionForm {
-	padding: var(--top) var(--left);
+section .sectionTable {
+	width: 60%;
+}
+
+section .sectionForm {	
+	width: 40%;
 }
 
 form, fieldset {
@@ -111,6 +116,12 @@ table, th, tr, td {
 	text-align: center;
 }
 
-th, tr, td {
-	min-width: 10rem
+th, td {
+	padding: 1rem;
+}
+
+caption {
+	margin-bottom: var(--top);
+	font-size: 3.2rem;
+	font-weight: bold;
 }
