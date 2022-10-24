@@ -1,14 +1,20 @@
 let tr = ``
-let idCounter = 0
+let idCounter = -1
 //Cadastrar Produto ao pressionar botao Cadastrar
 const form = document.querySelector('#formulario')
 const tbody = document.querySelector('tbody')
 
 const createMsg = () => {
   const rows = document.querySelectorAll('.linha')[idCounter]
-  const cells = document.getElementsByTagName('td')
 
-  const ID = Number(rows.cells[0].innerHTML) + 1
+  let ID = 0
+
+  if (rows?.getElementsByTagName('td')) {
+    ID = Number(rows.getElementsByTagName('td')[0].innerHTML) + 1
+  } else {
+    ID = 1
+  }
+
   const descricao = document.getElementById('descricao').value.toUpperCase()
   const categoria = document.getElementById('categoria').value.toUpperCase()
   const peso = Number(document.getElementById('peso').value)
