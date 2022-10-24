@@ -33,7 +33,20 @@ const createTableRow = (tbody, tr) => {
 
 form.addEventListener('submit', e => {
   e.preventDefault()
-  createMsg()
-  createTableRow(tbody, tr)
-  idCounter++
+  if (
+    confirm(`Deseja mesmo cadastrar o produto?
+    Descricao: ${descricao.value}
+    Categoria: ${categoria.value}
+    Peso: ${peso.value}
+    Altura: ${altura.value}
+    Largura: ${largura.value}
+    Comprimento: ${comprimento.value}
+    Estoque: ${estoque.value}
+    Data do Cadastro: ${dataCadastro.value}
+    `)
+  ) {
+    createMsg()
+    createTableRow(tbody, tr)
+    idCounter++
+  }
 })
