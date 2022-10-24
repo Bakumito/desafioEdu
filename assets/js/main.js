@@ -2,11 +2,11 @@ let tr = ``
 let idCounter = -1
 //Cadastrar Produto ao pressionar botao Cadastrar
 const form = document.querySelector('#formulario')
+const botaoExcluir = document.querySelector('#botaoExcluir')
 const tbody = document.querySelector('tbody')
 
 const createMsg = () => {
   const rows = document.querySelectorAll('.linha')[idCounter]
-
   let ID = 0
   rows?.getElementsByTagName('td')
     ? (ID = Number(rows.getElementsByTagName('td')[0].innerHTML) + 1)
@@ -45,4 +45,19 @@ form.addEventListener('submit', e => {
     createTableRow(tbody, tr)
     idCounter++
   }
+})
+
+botaoExcluir.addEventListener('click', e => {
+  e.preventDefault()
+  const inputCodigo = prompt('Digite o codigo do produto: ')
+  // const codID = document
+  //   .querySelectorAll('.linha')
+  //   [codigo - 1].getElementsByTagName('td')[0].innerHTML
+
+  let codigoID = `cod${inputCodigo}`
+  // let codigoID = codID.getElementsByTagName('td')[0].innerHTML
+  console.log(inputCodigo)
+  console.log(codigoID)
+  let teste = document.getElementById(codigoID)
+  console.log(`final ${teste.innerHTML}`)
 })
