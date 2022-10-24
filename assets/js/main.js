@@ -20,7 +20,7 @@ const createMsg = () => {
   const estoque = Number(document.getElementById('estoque').value)
   const dataCadastro = document.getElementById('dataCadastro').value
 
-  tr = `<tr class="linha"><td id="cod${ID}">${ID}</td><td>${descricao}</td><td>${categoria}</td><td>${peso}</td><td>${altura}</td><td>${largura}</td><td>${comprimento}</td><td>${estoque}</td><td>${dataCadastro}</td></tr>`
+  tr = `<tr class="linha" id="cod${ID}"><td>${ID}</td><td>${descricao}</td><td>${categoria}</td><td>${peso}</td><td>${altura}</td><td>${largura}</td><td>${comprimento}</td><td>${estoque}</td><td>${dataCadastro}</td></tr>`
 }
 
 const createTableRow = (tbody, tr) => {
@@ -50,14 +50,13 @@ form.addEventListener('submit', e => {
 botaoExcluir.addEventListener('click', e => {
   e.preventDefault()
   const inputCodigo = prompt('Digite o codigo do produto: ')
-  // const codID = document
-  //   .querySelectorAll('.linha')
-  //   [codigo - 1].getElementsByTagName('td')[0].innerHTML
-
-  let codigoID = `cod${inputCodigo}`
-  // let codigoID = codID.getElementsByTagName('td')[0].innerHTML
-  console.log(inputCodigo)
-  console.log(codigoID)
-  let teste = document.getElementById(codigoID)
-  console.log(`final ${teste.innerHTML}`)
+  const codigoID = `cod${inputCodigo}`
+  let produto = document.getElementById(codigoID)
+  console.log(`valor digitado: ${inputCodigo}
+  codigo do produto: ${codigoID}
+  produto == ${produto}
+  valor do codigo do produto ${produto.innerHTML}`)
+  // tbody.innerHTML = ''
+  // document.querySelectorAll('.linha').innerHTML
+  produto.innerHTML = ''
 })
