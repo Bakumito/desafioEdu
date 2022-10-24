@@ -1,31 +1,45 @@
 let tr = ``
 let idCounter = -1
 let ID = 0
-//Cadastrar Produto ao pressionar botao Cadastrar
+
 const form = document.querySelector('#formulario')
-const botaoExcluir = document.querySelector('#botaoExcluir')
 const tbody = document.querySelector('tbody')
+const botaoExcluir = document.querySelector('#botaoExcluir')
+const botaoAtualizar = document.querySelector('#botaoAtualizar')
+
+const objetos = () => {
+  return {
+    descricao: document.getElementById('descricao').value.toUpperCase(),
+    categoria: document.getElementById('categoria').value.toUpperCase(),
+    peso: Number(document.getElementById('peso').value),
+    altura: Number(document.getElementById('altura').value),
+    largura: Number(document.getElementById('largura').value),
+    comprimento: Number(document.getElementById('comprimento').value),
+    estoque: Number(document.getElementById('estoque').value),
+    dataCadastro: document.getElementById('dataCadastro').value
+  }
+}
 
 const createMsg = () => {
   ID++
-  const descricao = document.getElementById('descricao').value.toUpperCase()
-  const categoria = document.getElementById('categoria').value.toUpperCase()
-  const peso = Number(document.getElementById('peso').value)
-  const altura = Number(document.getElementById('altura').value)
-  const largura = Number(document.getElementById('largura').value)
-  const comprimento = Number(document.getElementById('comprimento').value)
-  const estoque = Number(document.getElementById('estoque').value)
-  const dataCadastro = document.getElementById('dataCadastro').value
-
-  tr = `<tr class="linha" id="cod${ID}"><td>${ID}</td><td>${descricao}</td><td>${categoria}</td><td>${peso}</td><td>${altura}</td><td>${largura}</td><td>${comprimento}</td><td>${estoque}</td><td>${dataCadastro}</td></tr>`
+  tr = `<tr class="linha" id="cod${ID}">
+  <td>${ID}</td>
+  <td>${objetos().descricao}</td>
+  <td>${objetos().categoria}</td>
+  <td>${objetos().peso}</td>
+  <td>${objetos().altura}</td>
+  <td>${objetos().largura}</td>
+  <td>${objetos().comprimento}</td>
+  <td>${objetos().estoque}</td>
+  <td>${objetos().dataCadastro}</td>
+</tr>`
 }
 
 const createTableRow = (tbody, tr) => {
   tbody.innerHTML += tr
 }
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
+const fnCadastrar = () => {
   if (
     confirm(`Deseja mesmo cadastrar o produto?
     Descricao: ${descricao.value}
@@ -42,12 +56,28 @@ form.addEventListener('submit', e => {
     createTableRow(tbody, tr)
     idCounter++
   }
-})
+}
 
-botaoExcluir.addEventListener('click', e => {
-  e.preventDefault()
+const fnExcluir = () => {
   const inputCodigo = prompt('Digite o codigo do produto: ')
   const codigoID = `cod${inputCodigo}`
-  let produto = document.getElementById(codigoID)
-  produto.innerHTML = ''
-})
+  let excluir = document.getElementById(codigoID)
+  excluir.innerHTML = ''
+}
+
+const fnAtualizar = () => {
+  const inputCodigo = prompt('Digite o codigo do produto: ')
+  const codigoID = `cod${inputCodigo}`
+  let alterar = document.getElementById(codigoID)
+  alterar.innerHTML = `<tr class="linha" id="cod${inputCodigo}">
+<td>${inputCodigo}</td>
+<td>${objetos().descricao}</td>
+<td>${objetos().categoria}</td>
+<td>${objetos().peso}</td>
+<td>${objetos().altura}</td>
+<td>${objetos().largura}</td>
+<td>${objetos().comprimento}</td>
+<td>${objetos().estoque}</td>
+<td>${objetos().dataCadastro}</td>
+</tr>`
+}
