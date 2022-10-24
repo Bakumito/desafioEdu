@@ -1,16 +1,13 @@
 let tr = ``
 let idCounter = -1
+let ID = 0
 //Cadastrar Produto ao pressionar botao Cadastrar
 const form = document.querySelector('#formulario')
 const botaoExcluir = document.querySelector('#botaoExcluir')
 const tbody = document.querySelector('tbody')
 
 const createMsg = () => {
-  const rows = document.querySelectorAll('.linha')[idCounter]
-  let ID = 0
-  rows?.getElementsByTagName('td')
-    ? (ID = Number(rows.getElementsByTagName('td')[0].innerHTML) + 1)
-    : (ID = 1)
+  ID++
   const descricao = document.getElementById('descricao').value.toUpperCase()
   const categoria = document.getElementById('categoria').value.toUpperCase()
   const peso = Number(document.getElementById('peso').value)
@@ -52,11 +49,5 @@ botaoExcluir.addEventListener('click', e => {
   const inputCodigo = prompt('Digite o codigo do produto: ')
   const codigoID = `cod${inputCodigo}`
   let produto = document.getElementById(codigoID)
-  console.log(`valor digitado: ${inputCodigo}
-  codigo do produto: ${codigoID}
-  produto == ${produto}
-  valor do codigo do produto ${produto.innerHTML}`)
-  // tbody.innerHTML = ''
-  // document.querySelectorAll('.linha').innerHTML
   produto.innerHTML = ''
 })
