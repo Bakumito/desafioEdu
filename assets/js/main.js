@@ -1,11 +1,8 @@
 let tr = ``
-let idCounter = -1
 let ID = 0
 
 const form = document.querySelector('#formulario')
 const tbody = document.querySelector('tbody')
-const botaoExcluir = document.querySelector('#botaoExcluir')
-const botaoAtualizar = document.querySelector('#botaoAtualizar')
 
 const objetos = () => {
   return {
@@ -20,10 +17,20 @@ const objetos = () => {
   }
 }
 
-const createMsg = () => {
-  ID++
-  tr = `<tr class="linha" id="cod${ID}">
-  <td>${ID}</td>
+const createMsg = cod => {
+  tr = `<tr class="linha" id="cod${cod}">
+  <td><input
+    class="botao"
+    type="button"
+    value="A"
+    onclick="fnAtualizarItem(cod${cod})" />
+  <input 
+    class="botao"
+    type="button"
+    value="E"
+    onclick="fnExcluirItem(cod${cod})" />
+  </td>  
+  <td>${cod}</td>
   <td>${objetos().descricao}</td>
   <td>${objetos().categoria}</td>
   <td>${objetos().peso}</td>
@@ -44,40 +51,39 @@ const fnCadastrar = () => {
     confirm(`Deseja mesmo cadastrar o produto?
     Descricao: ${descricao.value}
     Categoria: ${categoria.value}
-    Peso: ${peso.value}
-    Altura: ${altura.value}
-    Largura: ${largura.value}
-    Comprimento: ${comprimento.value}
-    Estoque: ${estoque.value}
+    Peso: ${peso.value}Kg
+    Altura: ${altura.value}m
+    Largura: ${largura.value}m
+    Comprimento: ${comprimento.value}m
+    Estoque: ${estoque.value} un
     Data do Cadastro: ${dataCadastro.value}
     `)
   ) {
-    createMsg()
+    ID++
+    createMsg(ID)
     createTableRow(tbody, tr)
-    idCounter++
   }
 }
+const fnAtualizarItem = cod => {
+  const alterar = document.getElementById(cod.id)
+  createMsg(cod.id.replace('cod', ''))
+  alterar.innerHTML = tr
+}
 
-const fnExcluir = () => {
-  const inputCodigo = prompt('Digite o codigo do produto: ')
-  const codigoID = `cod${inputCodigo}`
-  let excluir = document.getElementById(codigoID)
-  excluir.innerHTML = ''
+const fnExcluirItem = cod => {
+  const inputCodigo = document.getElementById(cod.id)
+  console.log(inputCodigo)
+  inputCodigo.innerHTML = ''
 }
 
 const fnAtualizar = () => {
   const inputCodigo = prompt('Digite o codigo do produto: ')
   const codigoID = `cod${inputCodigo}`
   let alterar = document.getElementById(codigoID)
-  alterar.innerHTML = `<tr class="linha" id="cod${inputCodigo}">
-<td>${inputCodigo}</td>
-<td>${objetos().descricao}</td>
-<td>${objetos().categoria}</td>
-<td>${objetos().peso}</td>
-<td>${objetos().altura}</td>
-<td>${objetos().largura}</td>
-<td>${objetos().comprimento}</td>
-<td>${objetos().estoque}</td>
-<td>${objetos().dataCadastro}</td>
-</tr>`
+  createMsg(inputCodigo)
+  tr.replace('id="cod${cod}', 'id="cod${inputCodigo}')
+  tr.replace('AtualizarItem(cod${cod})', 'AtualizarItem(cod${inputCodigo})')
+  tr.replace('ExcluirItem(cod${cod})', 'ExcluirItem(cod${inputCodigo})')
+
+  alterar.innerHTML = tr
 }
