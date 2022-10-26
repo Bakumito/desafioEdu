@@ -19,16 +19,17 @@ const objetos = () => {
 
 const createMsg = cod => {
   tr = `<tr class="linha" id="cod${cod}">
-  <td><input
-    class="botao"
-    type="button"
-    value="A"
-    onclick="fnAtualizarItem(cod${cod})" />
-  <input 
-    class="botao"
-    type="button"
-    value="E"
-    onclick="fnExcluirItem(cod${cod})" />
+  <td>
+    <div class="icons">
+      <input
+        class="botaoEditar"
+        type="button"
+        onclick="fnAtualizarItem(cod${cod})" />
+      <input 
+        class="botaoExcluir"
+        type="button"
+        onclick="fnExcluirItem(cod${cod})" />
+    </div>
   </td>  
   <td>${cod}</td>
   <td>${objetos().descricao}</td>
