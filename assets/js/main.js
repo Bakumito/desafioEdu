@@ -1,10 +1,8 @@
 let tr = ``
 let ID = 0
-
-const form = document.querySelector('#formulario')
 const tbody = document.querySelector('tbody')
 
-const objetos = () => {
+const produto = () => {
   return {
     descricao: document.getElementById('descricao').value.toUpperCase(),
     categoria: document.getElementById('categoria').value.toUpperCase(),
@@ -15,6 +13,19 @@ const objetos = () => {
     estoque: Number(document.getElementById('estoque').value),
     dataCadastro: document.getElementById('dataCadastro').value
   }
+}
+
+const descricaoProduto = () => {
+  return `
+    Descricao: ${descricao.value}
+    Categoria: ${categoria.value}
+    Peso: ${peso.value}Kg
+    Altura: ${altura.value}m
+    Largura: ${largura.value}m
+    Comprimento: ${comprimento.value}m
+    Estoque: ${estoque.value} un
+    Data do Cadastro: ${dataCadastro.value}
+  `
 }
 
 const createMsg = cod => {
@@ -32,14 +43,14 @@ const createMsg = cod => {
     </div>
   </td>  
   <td>${cod}</td>
-  <td>${objetos().descricao}</td>
-  <td>${objetos().categoria}</td>
-  <td>${objetos().peso}</td>
-  <td>${objetos().altura}</td>
-  <td>${objetos().largura}</td>
-  <td>${objetos().comprimento}</td>
-  <td>${objetos().estoque}</td>
-  <td>${objetos().dataCadastro}</td>
+  <td>${produto().descricao}</td>
+  <td>${produto().categoria}</td>
+  <td>${produto().peso}</td>
+  <td>${produto().altura}</td>
+  <td>${produto().largura}</td>
+  <td>${produto().comprimento}</td>
+  <td>${produto().estoque}</td>
+  <td>${produto().dataCadastro}</td>
 </tr>`
 }
 
@@ -47,34 +58,45 @@ const createTableRow = (tbody, tr) => {
   tbody.innerHTML += tr
 }
 
-const fnCadastrar = () => {
-  if (
-    confirm(`Deseja mesmo cadastrar o produto?
-    Descricao: ${descricao.value}
-    Categoria: ${categoria.value}
-    Peso: ${peso.value}Kg
-    Altura: ${altura.value}m
-    Largura: ${largura.value}m
-    Comprimento: ${comprimento.value}m
-    Estoque: ${estoque.value} un
-    Data do Cadastro: ${dataCadastro.value}
+const confirmar = (c, e, a) => {
+  if (c == true && e == false && a == false) {
+    return confirm(`Deseja mesmo cadastrar o produto?
+    ${descricaoProduto()}
     `)
-  ) {
+  }
+  if (c == false && e == true && a == false) {
+    return confirm(`Deseja mesmo excluir o produto?
+    `)
+  }
+  if (c == false && e == false && a == true) {
+    return confirm(`Deseja mesmo alterar o produto?
+    ${descricaoProduto()}
+    `)
+  }
+}
+
+const fnCadastrar = () => {
+  if (confirmar(true, false, false)) {
     ID++
     createMsg(ID)
     createTableRow(tbody, tr)
   }
 }
+
 const fnAtualizarItem = cod => {
-  const alterar = document.getElementById(cod.id)
-  createMsg(cod.id.replace('cod', ''))
-  alterar.innerHTML = tr
+  if (confirmar(false, false, true)) {
+    const alterar = document.getElementById(cod.id)
+    createMsg(cod.id.replace('cod', ''))
+    alterar.innerHTML = tr
+  }
 }
 
 const fnExcluirItem = cod => {
-  const inputCodigo = document.getElementById(cod.id)
-  console.log(inputCodigo)
-  inputCodigo.innerHTML = ''
+  if (confirmar(false, true, false)) {
+    const inputCodigo = document.getElementById(cod.id)
+    console.log(inputCodigo)
+    inputCodigo.innerHTML = ''
+  }
 }
 
 const fnAtualizar = () => {

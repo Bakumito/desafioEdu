@@ -57,13 +57,14 @@ section {
 }
 
 section .sectionTable, section .sectionForm {
-	height: 100%;
-	padding: var(--top) var(--left);
+	height: 90%;
+	padding: var(--top) var(--top);
 	overflow: hidden auto;
 }
 
 section .sectionTable {
 	width: 60%;
+	
 }
 
 section .sectionForm {	
@@ -142,12 +143,15 @@ caption {
 	height: 3rem;
 	width: 3rem;
 	border-radius: 15%;
-	background-image: url(../img/trash.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 }
 
+.botaoEditar {
+	background-image: url(../img/edit.png);
+}
+
 .botaoExcluir {
 	margin-left: 2rem;
-	background-image: url(../img/edit.png);
+	background-image: url(../img/trash.png);
 }
