@@ -39,6 +39,7 @@ const createMsg = cod => {
   <td>
     <div class="icons">
       <input
+        id="codBotaoEditar${cod}"
         class="botaoEditar"
         type="button"
         onclick="abrirJanela()" />
@@ -130,8 +131,10 @@ const fnAtualizarItem = cod => {
 }
 
 const fnExcluirItem = cod => {
+  console.log(cod)
   let confirmando = 'e'
   if (confirmar(confirmando)) {
+    console.log(cod)
     const inputCodigo = document.getElementById(cod.id)
     console.log(inputCodigo)
     inputCodigo.innerHTML = ''

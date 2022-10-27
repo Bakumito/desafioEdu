@@ -65,12 +65,12 @@ section #sectionTable, section #sectionForm {
 }
 
 section #sectionTable {
-	width: 60%;
+	width: 65%;
 	
 }
 
 section #sectionForm {	
-	width: 40%;
+	width: 35%;
 }
 
 form, fieldset {
@@ -82,7 +82,7 @@ fieldset {
 }
 
 fieldset legend {
-  margin-left: var(--left);
+  margin-left: var(--top);
   color: #446e7a;
   font-size: 3.2rem;
   font-weight: bold;
@@ -216,8 +216,7 @@ caption {
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: #0a5838;
   text-decoration: none;
   cursor: pointer;

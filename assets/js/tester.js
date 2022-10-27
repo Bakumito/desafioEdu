@@ -45,6 +45,7 @@ const createMsgTemp = cod => {
   <td>
     <div class="icons">
       <input
+        id="codBotaoEditar${cod}"
         class="botaoEditar"
         type="button"
         onclick="abrirJanela()" />
@@ -94,4 +95,29 @@ const fnCadastrarTemp = () => {
     createMsgTemp(ID)
     createTableRow(tbody, tr)
   }
+}
+
+const fnAtualizarItemTemp = cod => {
+  let confirmando = 'a'
+  if (confirmarTemp(confirmando)) {
+    console.log(cod)
+    const alterar = document.getElementById(cod)
+
+    console.log(alterar)
+    console.log(tr)
+    createMsgTemp(cod.replace('cod', ''))
+    alterar.innerHTML = tr
+  }
+}
+
+document.addEventListener('click', function (e, cod) {
+  const target = e.target
+  console.log(target)
+  const targetID = target.getElementById(`codBotaoEditar${cod}`)
+  console.log(targetID)
+})
+
+function chamaAtualiza(ID) {
+  const idCode = `cod${ID}`
+  fnAtualizarItemTemp(idCode)
 }
