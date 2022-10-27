@@ -58,18 +58,18 @@ section {
 	height: 100%;
 }
 
-section .sectionTable, section .sectionForm {
+section #sectionTable, section #sectionForm {
 	height: 90%;
 	padding: var(--top) var(--top);
 	overflow: auto;
 }
 
-section .sectionTable {
+section #sectionTable {
 	width: 60%;
 	
 }
 
-section .sectionForm {	
+section #sectionForm {	
 	width: 40%;
 }
 
@@ -149,11 +149,11 @@ caption {
 	align-items: baseline;
 }
 
-.botaoExcluir:hover, .botaoEditar:hover {
+.botaoExcluir:hover, .botaoEditar:hover, #botaoFiltro:hover, #botaoPesquisa:hover, #botaoGo:hover {
 	background-color: #00e76f;
 }
 
-.botaoExcluir, .botaoEditar {
+.botaoExcluir, .botaoEditar, #botaoFiltro, #botaoPesquisa, #botaoGo {
 	height: 3rem;
 	width: 3rem;
 	border-radius: 15%;
@@ -161,39 +161,33 @@ caption {
 	background-repeat: no-repeat;
 }
 
-.botaoEditar {
-	background-image: url(../img/edit.png);
-}
-
 .botaoExcluir {
 	margin-left: 2rem;
 	background-image: url(../img/trash.png);
 }
 
-#botaoPesquisar {
+#botaoPesquisa, #botaoGo {
+	margin-left: 2rem;
   background-image: url('../img/search.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 3rem;
+}
+
+.botaoEditar {
+	background-image: url(../img/edit.png);
+}
+
+#botaoFiltro {
+	background-image: url(../img/filter.svg);
+}
+
+
+#inputPesquisa {
   height: 3rem;
-  border: 0.01rem solid var(--main-color);
+  padding: 0 1rem;  
 }
 
-#botaoPesquisar:hover {
-	background-color: #00e76f;
-}
-
-#pesquisando {
-  height: 3rem;
-  padding: 0 1rem;
-  
-}
-
-
-
-#pesquisando:focus {
+#inputPesquisa:focus {
 	outline: none !important;
-        border-color: #00e76f;
+  border-color: #00e76f;
 }
 
 #pesquisar {

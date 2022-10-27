@@ -1,10 +1,11 @@
 let tr = ``
 let ID = 0
 const tbody = document.querySelector('tbody')
-const pesquisar = document.getElementById('pesquisar')
-const botaoPesquisar = document.getElementById('botaoPesquisar')
+const inputPesquisa = document.getElementById('inputPesquisa')
+const botaoPesquisa = document.getElementById('botaoPesquisa')
 const span = document.getElementsByClassName('close')[0]
 const botaoReiniciar = document.getElementById('botaoReiniciar')
+const botaoTestes = document.getElementById('botaoTestes')
 
 const produto = () => {
   return {
@@ -127,10 +128,63 @@ const fnAtualizar = () => {
   alterar.innerHTML = tr
 }
 
-botaoPesquisar.onclick = function () {
+// const botaoFiltro = document.getElementById('botaoFiltro')
+
+// botaoFiltro.onclick = function () {
+//   pesquisar.style.display = 'block'
+// }
+
+botaoPesquisa.onclick = function () {
   pesquisar.style.display = 'block'
 }
 
 span.onclick = function () {
   pesquisar.style.display = 'none'
+}
+
+// function testes() {
+//   console.log(inputPesquisa.value.toUpperCase().trim())
+// }
+
+const colunas = [
+  'Filtros',
+  'ID',
+  'Descrição',
+  'Categoria',
+  'Peso',
+  'Altura',
+  'Largura',
+  'Comprimento',
+  'Estoque',
+  'DataCadastro'
+]
+
+const tabela = document.getElementById('sectionTable')
+const linha = tabela.getElementsByTagName('tr')
+
+const fnPesquisar = () => {
+  const filtro = inputPesquisa.value.toUpperCase().trim()
+  var td, i
+
+  for (i = 1; i < linha.length; i++) {
+    td = linha[i].getElementsByTagName('td')[2]
+    if (td) {
+      if (td.innerHTML.toUpperCase().trim() == filtro) {
+        linha[i].style.display = ''
+      } else {
+        linha[i].style.display = 'none'
+      }
+    }
+  }
+}
+
+const fnLimparFiltro = () => {
+  var td, i
+
+  for (i = 1; i < linha.length; i++) {
+    td = linha[i].getElementsByTagName('td')[2]
+    if (td) {
+      linha[i].style.display = ''
+    }
+  }
 }

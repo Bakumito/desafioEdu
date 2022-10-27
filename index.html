@@ -14,18 +14,12 @@
     <header>
       <div>Cadastro de Produtos</div>
       <div>
-        <label for="pesquisando"><button id="botaoPesquisar"></button></label>
-        <input
-          id="pesquisando"
-          type="text"
-          name="pesquisando"
-          placeholder="Pesquisando"
-        />
+        <div><button onclick="" id="testes">Testes</button></div>
       </div>
     </header>
     <main>
       <section>
-        <div class="sectionForm">
+        <div id="sectionForm">
           <form
             id="formulario"
             method="post"
@@ -140,14 +134,23 @@
             </fieldset>
           </form>
         </div>
-        <div class="sectionTable">
+        <div id="sectionTable">
           <table>
             <caption>
               Tabela Produtos
             </caption>
             <thead>
               <tr>
-                <th></th>
+                <th>
+                  <div class="icons">
+                    <input
+                      id="botaoFiltro"
+                      type="button"
+                      onclick="fnLimparFiltro()"
+                    />
+                    <input id="botaoPesquisa" type="button" />
+                  </div>
+                </th>
                 <th>ID</th>
                 <th>Descrição</th>
                 <th>Categoria</th>
@@ -180,7 +183,17 @@
         <div id="pesquisar" class="pesquisas">
           <div class="pesquisado">
             <span class="close">&times;</span>
-            <p>Dados a serem pesquisados</p>
+            <div>
+              <label for="inputPesquisa"
+                ><input onclick="fnPesquisar()" id="botaoGo" type="button"
+              /></label>
+              <input
+                id="inputPesquisa"
+                type="text"
+                name="inputPesquisa"
+                placeholder="Pesquisando"
+              />
+            </div>
           </div>
         </div>
       </aside>
