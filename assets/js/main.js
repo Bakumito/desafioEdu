@@ -1,6 +1,7 @@
 let tr = ``
 let ID = 0
 const tbody = document.querySelector('tbody')
+const janelaPesquisa = document.getElementById('janelaPesquisa')
 const inputPesquisa = document.getElementById('inputPesquisa')
 const botaoPesquisa = document.getElementById('botaoPesquisa')
 const span = document.getElementsByClassName('close')[0]
@@ -128,23 +129,13 @@ const fnAtualizar = () => {
   alterar.innerHTML = tr
 }
 
-// const botaoFiltro = document.getElementById('botaoFiltro')
-
-// botaoFiltro.onclick = function () {
-//   pesquisar.style.display = 'block'
-// }
-
 botaoPesquisa.onclick = function () {
-  pesquisar.style.display = 'block'
+  janelaPesquisa.style.display = 'block'
 }
 
 span.onclick = function () {
-  pesquisar.style.display = 'none'
+  janelaPesquisa.style.display = 'none'
 }
-
-// function testes() {
-//   console.log(inputPesquisa.value.toUpperCase().trim())
-// }
 
 const colunas = [
   'Filtros',

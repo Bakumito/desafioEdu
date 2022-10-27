@@ -190,7 +190,7 @@ caption {
   border-color: #00e76f;
 }
 
-#pesquisar {
+.janelas {
   display: none;
   position: fixed;
   z-index: 1;
@@ -201,7 +201,7 @@ caption {
   background-color: #0a2e3866;
 }
 
-.pesquisado {
+.janelaBox {
   background-color: #fff;
   margin: 15% auto;
   padding: 20px;
