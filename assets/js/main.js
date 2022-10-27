@@ -1,6 +1,13 @@
 let tr = ``
 let ID = 0
 const tbody = document.querySelector('tbody')
+const pesquisar = document.getElementById('pesquisar')
+
+const botaoPesquisar = document.getElementById('botaoPesquisar')
+
+const span = document.getElementsByClassName('close')[0]
+
+const botaoReiniciar = document.getElementById('botaoReiniciar')
 
 const produto = () => {
   return {
@@ -58,25 +65,30 @@ const createTableRow = (tbody, tr) => {
   tbody.innerHTML += tr
 }
 
-const confirmar = (c, e, a) => {
-  if (c == true && e == false && a == false) {
+const confirmar = confirmando => {
+  if (confirmando == 'c') {
     return confirm(`Deseja mesmo cadastrar o produto?
     ${descricaoProduto()}
     `)
   }
-  if (c == false && e == true && a == false) {
+  if (confirmando == 'e') {
     return confirm(`Deseja mesmo excluir o produto?
     `)
   }
-  if (c == false && e == false && a == true) {
+  if (confirmando == 'a') {
     return confirm(`Deseja mesmo alterar o produto?
     ${descricaoProduto()}
+    `)
+  }
+  if (confirmando == 'r') {
+    return confirm(`Caso pressione sim, TODA A TABELA será excluida. Deseja mesmo prosseguir?
     `)
   }
 }
 
 const fnCadastrar = () => {
-  if (confirmar(true, false, false)) {
+  let confirmando = 'c'
+  if (confirmar(confirmando)) {
     ID++
     createMsg(ID)
     createTableRow(tbody, tr)
@@ -84,7 +96,8 @@ const fnCadastrar = () => {
 }
 
 const fnAtualizarItem = cod => {
-  if (confirmar(false, false, true)) {
+  let confirmando = 'a'
+  if (confirmar(confirmando)) {
     const alterar = document.getElementById(cod.id)
     createMsg(cod.id.replace('cod', ''))
     alterar.innerHTML = tr
@@ -92,11 +105,17 @@ const fnAtualizarItem = cod => {
 }
 
 const fnExcluirItem = cod => {
-  if (confirmar(false, true, false)) {
+  let confirmando = 'e'
+  if (confirmar(confirmando)) {
     const inputCodigo = document.getElementById(cod.id)
     console.log(inputCodigo)
     inputCodigo.innerHTML = ''
   }
+}
+
+const fnReiniciar = () => {
+  const confirmando = 'r'
+  if (confirmar(confirmando)) tbody.innerHTML = ''
 }
 
 const fnAtualizar = () => {
@@ -109,4 +128,12 @@ const fnAtualizar = () => {
   tr.replace('ExcluirItem(cod${cod})', 'ExcluirItem(cod${inputCodigo})')
 
   alterar.innerHTML = tr
+}
+
+botaoPesquisar.onclick = function () {
+  pesquisar.style.display = 'block'
+}
+
+span.onclick = function () {
+  pesquisar.style.display = 'none'
 }

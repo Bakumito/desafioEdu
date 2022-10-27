@@ -5,13 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script defer src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script defer src="./assets/js/main.js"></script>
 
     <title>Document</title>
   </head>
   <body>
-    <header>Cadastro de Produtos</header>
+    <header>
+      <div>Cadastro de Produtos</div>
+      <div>
+        <label for="pesquisando"><button id="botaoPesquisar"></button></label>
+        <input
+          id="pesquisando"
+          type="text"
+          name="pesquisando"
+          placeholder="Pesquisando"
+        />
+      </div>
+    </header>
     <main>
       <section>
         <div class="sectionForm">
@@ -22,7 +33,7 @@
             target="_blank"
           >
             <fieldset>
-              <legend>Cadastro de Produtos</legend>
+              <legend>Insira os Dados a Cadastrar</legend>
               <div>
                 <label for="idProduto">ID</label>
                 <input id="idProduto" type="number" nome="idProduto" disabled />
@@ -109,19 +120,20 @@
                 <input
                   class="botao"
                   type="button"
-                  value="cadastrar"
+                  value="Cadastrar"
                   onclick="fnCadastrar()"
                 />
-                <!-- <input
+                <input
+                  id="botaoReiniciar"
                   class="botao"
                   type="button"
-                  value="excluir"
-                  onclick="fnExcluir()"
-                /> -->
+                  value="Reiniciar"
+                  onclick="fnReiniciar()"
+                />
                 <input
                   class="botao"
                   type="button"
-                  value="atualizar"
+                  value="Alterar / ID"
                   onclick="fnAtualizar()"
                 />
               </div>
@@ -164,7 +176,15 @@
           </table>
         </div>
       </section>
+      <aside>
+        <div id="pesquisar" class="pesquisas">
+          <div class="pesquisado">
+            <span class="close">&times;</span>
+            <p>Dados a serem pesquisados</p>
+          </div>
+        </div>
+      </aside>
     </main>
-    <footer>rodapé</footer>
+    <footer><div>rodapé</div></footer>
   </body>
 </html>
