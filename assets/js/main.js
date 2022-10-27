@@ -2,17 +2,14 @@ let tr = ``
 let ID = 0
 const tbody = document.querySelector('tbody')
 const pesquisar = document.getElementById('pesquisar')
-
 const botaoPesquisar = document.getElementById('botaoPesquisar')
-
 const span = document.getElementsByClassName('close')[0]
-
 const botaoReiniciar = document.getElementById('botaoReiniciar')
 
 const produto = () => {
   return {
-    descricao: document.getElementById('descricao').value.toUpperCase(),
-    categoria: document.getElementById('categoria').value.toUpperCase(),
+    descricao: document.getElementById('descricao').value.toUpperCase().trim(),
+    categoria: document.getElementById('categoria').value.toUpperCase().trim(),
     peso: Number(document.getElementById('peso').value),
     altura: Number(document.getElementById('altura').value),
     largura: Number(document.getElementById('largura').value),
@@ -116,12 +113,12 @@ const fnExcluirItem = cod => {
 const fnReiniciar = () => {
   const confirmando = 'r'
   if (confirmar(confirmando)) tbody.innerHTML = ''
+  ID = 0
 }
 
 const fnAtualizar = () => {
   const inputCodigo = prompt('Digite o codigo do produto: ')
-  const codigoID = `cod${inputCodigo}`
-  let alterar = document.getElementById(codigoID)
+  let alterar = document.getElementById(`cod${inputCodigo}`)
   createMsg(inputCodigo)
   tr.replace('id="cod${cod}', 'id="cod${inputCodigo}')
   tr.replace('AtualizarItem(cod${cod})', 'AtualizarItem(cod${inputCodigo})')

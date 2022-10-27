@@ -171,12 +171,12 @@ caption {
 }
 
 #botaoPesquisar {
-  background-image: url('../img/search.png');
+  background-image: url('../img/search.svg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 3rem;
   height: 3rem;
-  border: 0.01rem solid #00e76f;
+  border: 0.01rem solid var(--main-color);
 }
 
 #botaoPesquisar:hover {
