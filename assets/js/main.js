@@ -41,13 +41,13 @@ const createMsg = cod => {
       <input
         class="botaoEditar"
         type="button"
-        onclick="fnAtualizarItem(cod${cod})" />
-      <input 
+        onclick="abrirJanela()" />
+      <input
         class="botaoExcluir"
         type="button"
         onclick="fnExcluirItem(cod${cod})" />
     </div>
-  </td>  
+  </td>
   <td>${cod}</td>
   <td>${produto().descricao}</td>
   <td>${produto().categoria}</td>
@@ -59,6 +59,32 @@ const createMsg = cod => {
   <td>${produto().dataCadastro}</td>
 </tr>`
 }
+
+// const createMsg = cod => {
+//   tr = `<tr class="linha" id="cod${cod}">
+//   <td>
+//     <div class="icons">
+//       <input
+//         class="botaoEditar"
+//         type="button"
+//         onclick="fnAtualizarItem(cod${cod})" />
+//       <input
+//         class="botaoExcluir"
+//         type="button"
+//         onclick="fnExcluirItem(cod${cod})" />
+//     </div>
+//   </td>
+//   <td>${cod}</td>
+//   <td>${produto().descricao}</td>
+//   <td>${produto().categoria}</td>
+//   <td>${produto().peso}</td>
+//   <td>${produto().altura}</td>
+//   <td>${produto().largura}</td>
+//   <td>${produto().comprimento}</td>
+//   <td>${produto().estoque}</td>
+//   <td>${produto().dataCadastro}</td>
+// </tr>`
+// }
 
 const createTableRow = (tbody, tr) => {
   tbody.innerHTML += tr

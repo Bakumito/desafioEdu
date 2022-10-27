@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script defer src="./assets/js/main.js"></script>
+    <script defer src="./assets/js/tester.js"></script>
 
     <title>Document</title>
   </head>
@@ -200,8 +201,131 @@
       <aside>
         <div id="janelaTeste" class="janelas">
           <div class="janelaBox">
-            <span class="close">&times;</span>
-            <div>conteudo</div>
+            <span onclick="fecharJanela()" class="close">&times;</span>
+            <div>
+              <form
+                id="formularioTemp"
+                method="post"
+                action="........./novapagina........................."
+                target="_blank"
+              >
+                <fieldset>
+                  <legend>Insira os Dados a Cadastrar</legend>
+                  <div>
+                    <label for="idProduto">ID</label>
+                    <input
+                      id="idProdutoTemp"
+                      type="number"
+                      nome="idProduto"
+                      disabled
+                    />
+                  </div>
+                  <div>
+                    <label for="descricao">Descrição</label>
+                    <input
+                      id="descricaoTemp"
+                      type="text"
+                      name="descricao"
+                      placeholder="nome do produto"
+                    />
+                  </div>
+                  <div>
+                    <label for="categoria">Categoria</label>
+                    <input
+                      list="categorias"
+                      id="categoriaTemp"
+                      type="text"
+                      name="categoria"
+                      placeholder="--"
+                    />
+                    <datalist id="categoriasTemp">
+                      <option value="Categoria1"></option>
+                      <option value="Categoria2"></option>
+                    </datalist>
+                  </div>
+
+                  <div>
+                    <label for="peso">Peso</label>
+                    <input
+                      id="pesoTemp"
+                      type="number"
+                      step="0.01"
+                      name="peso"
+                      placeholder="Peso em kg"
+                    />
+                  </div>
+                  <div>
+                    <label for="altura">Altura</label>
+                    <input
+                      id="alturaTemp"
+                      type="number"
+                      step="0.01"
+                      name="altura"
+                      placeholder="Altura em metros"
+                    />
+                  </div>
+                  <div>
+                    <label for="largura">Largura</label>
+                    <input
+                      id="larguraTemp"
+                      type="number"
+                      step="0.01"
+                      name="largura"
+                      placeholder="Largura em metros"
+                    />
+                  </div>
+                  <div>
+                    <label for="comprimento">Comprimento</label>
+                    <input
+                      id="comprimentoTemp"
+                      type="number"
+                      step="0.01"
+                      name="comprimento"
+                      placeholder="Comprimento em metros"
+                    />
+                  </div>
+                  <div>
+                    <label for="estoque">Estoque</label>
+                    <input
+                      id="estoqueTemp"
+                      type="number"
+                      name="estoque"
+                      placeholder="Quantidade por caixa"
+                    />
+                  </div>
+                  <div>
+                    <label for="dataCadastro">Data do Cadastro</label>
+                    <input
+                      id="dataCadastroTemp"
+                      type="date"
+                      name="dataCadastro"
+                    />
+                  </div>
+
+                  <div>
+                    <input
+                      class="botao"
+                      type="button"
+                      value="Cadastrar"
+                      onclick="fnCadastrarTemp()"
+                    />
+                    <input
+                      id="botaoReiniciarTemp"
+                      class="botao"
+                      type="button"
+                      value="Reiniciar"
+                      onclick="fnReiniciar()"
+                    />
+                    <input
+                      class="botao"
+                      type="button"
+                      value="Alterar / ID"
+                      onclick="fnAtualizar()"
+                    />
+                  </div>
+                </fieldset>
+              </form>
+            </div>
           </div>
         </div>
       </aside>
