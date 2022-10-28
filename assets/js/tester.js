@@ -4,27 +4,6 @@ const fnAbrirJanela = () => {
   janelaTeste.style.display = 'block'
 }
 
-//  let targetedId;
-//  const onClick = (e) => {
-//    if (e.target.nodeName === 'INPUT') {
-//      targetedId = e.target.id;
-//     console.log(e.target.id.substr(0, 14))
-
-//  }
-//   console.log(targetedId)
-// }
-
-let targetedId
-const onClick = e => {
-  if (e.target.id.substr(0, 14) === 'codBotaoEditar') {
-    targetedId = e.target.id
-    //   console.log(e.target.id.substr(0, 14))
-    //    console.log(targetedId)
-  }
-  console.log(targetedId)
-  return targetedId.replace('codBotaoEditar', '')
-}
-
 const fecharJanela = () => {
   janelaTeste.style.display = 'none'
 }
@@ -122,14 +101,21 @@ const fnAtualizarItemTemp = cod => {
   let confirmando = 'a'
   if (confirmarTemp(confirmando)) {
     const alterar = document.getElementById(cod)
-
     createMsgTemp(cod.replace('cod', ''))
     alterar.innerHTML = tr
   }
 }
 
+let targetedId
+const onClick = e => {
+  if (
+    e.target.nodeName === 'INPUT' &&
+    e.target.id.substr(0, 14) === 'codBotaoEditar'
+  ) {
+    targetedId = e.target.id
+  }
+}
+
 function chamaAtualiza(targetedId) {
-  console.log(targetedId)
-  const idCode = `cod${targetedId}`
-  fnAtualizarItemTemp(idCode)
+  fnAtualizarItemTemp(targetedId.replace('codBotaoEditar', 'cod'))
 }
