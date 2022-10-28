@@ -1,7 +1,28 @@
 const janelaTeste = document.getElementById('janelaTeste')
 
-const abrirJanela = () => {
+const fnAbrirJanela = () => {
   janelaTeste.style.display = 'block'
+}
+
+//  let targetedId;
+//  const onClick = (e) => {
+//    if (e.target.nodeName === 'INPUT') {
+//      targetedId = e.target.id;
+//     console.log(e.target.id.substr(0, 14))
+
+//  }
+//   console.log(targetedId)
+// }
+
+let targetedId
+const onClick = e => {
+  if (e.target.id.substr(0, 14) === 'codBotaoEditar') {
+    targetedId = e.target.id
+    //   console.log(e.target.id.substr(0, 14))
+    //    console.log(targetedId)
+  }
+  console.log(targetedId)
+  return targetedId.replace('codBotaoEditar', '')
 }
 
 const fecharJanela = () => {
@@ -48,7 +69,7 @@ const createMsgTemp = cod => {
         id="codBotaoEditar${cod}"
         class="botaoEditar"
         type="button"
-        onclick="abrirJanela()" />
+        onclick="fnAbrirJanela(), document.addEventListener('click', onClick)"  />
       <input 
         class="botaoExcluir"
         type="button"
@@ -100,24 +121,15 @@ const fnCadastrarTemp = () => {
 const fnAtualizarItemTemp = cod => {
   let confirmando = 'a'
   if (confirmarTemp(confirmando)) {
-    console.log(cod)
     const alterar = document.getElementById(cod)
 
-    console.log(alterar)
-    console.log(tr)
     createMsgTemp(cod.replace('cod', ''))
     alterar.innerHTML = tr
   }
 }
 
-document.addEventListener('click', function (e, cod) {
-  const target = e.target
-  console.log(target)
-  const targetID = target.getElementById(`codBotaoEditar${cod}`)
-  console.log(targetID)
-})
-
-function chamaAtualiza(ID) {
-  const idCode = `cod${ID}`
+function chamaAtualiza(targetedId) {
+  console.log(targetedId)
+  const idCode = `cod${targetedId}`
   fnAtualizarItemTemp(idCode)
 }

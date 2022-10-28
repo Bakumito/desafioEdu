@@ -42,7 +42,7 @@ const createMsg = cod => {
         id="codBotaoEditar${cod}"
         class="botaoEditar"
         type="button"
-        onclick="abrirJanela()" />
+        onclick="fnAbrirJanela(), document.addEventListener('click', onClick)"  />
       <input
         class="botaoExcluir"
         type="button"
@@ -131,12 +131,9 @@ const fnAtualizarItem = cod => {
 }
 
 const fnExcluirItem = cod => {
-  console.log(cod)
   let confirmando = 'e'
   if (confirmar(confirmando)) {
-    console.log(cod)
     const inputCodigo = document.getElementById(cod.id)
-    console.log(inputCodigo)
     inputCodigo.innerHTML = ''
   }
 }
