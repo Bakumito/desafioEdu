@@ -14,19 +14,11 @@
   <body>
     <header>
       <div>Cadastro de Produtos</div>
-      <div>
-        <div><button onclick="" id="testes">Testes</button></div>
-      </div>
     </header>
     <main>
       <section>
         <div id="sectionForm">
-          <form
-            id="formulario"
-            method="post"
-            action="........./novapagina........................."
-            target="_blank"
-          >
+          <form id="formulario">
             <fieldset>
               <legend>Insira os Dados a Cadastrar</legend>
               <div>
@@ -54,9 +46,10 @@
                 <datalist id="categorias">
                   <option value="Categoria1"></option>
                   <option value="Categoria2"></option>
+                  <option value="Categoria3"></option>
+                  <option value="Categoria4"></option>
                 </datalist>
               </div>
-
               <div>
                 <label for="peso">Peso</label>
                 <input
@@ -110,7 +103,6 @@
                 <label for="dataCadastro">Data do Cadastro</label>
                 <input id="dataCadastro" type="date" name="dataCadastro" />
               </div>
-
               <div>
                 <input
                   class="botao"
@@ -164,19 +156,7 @@
               </tr>
             </thead>
             <tbody></tbody>
-            <tfoot>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tfoot>
+            <tfoot></tfoot>
           </table>
         </div>
       </section>
@@ -185,14 +165,14 @@
           <div class="janelaBox">
             <span class="close">&times;</span>
             <div>
-              <label for="inputPesquisa"
-                ><input onclick="fnPesquisar()" id="botaoGo" type="button"
-              /></label>
+              <label for="inputPesquisa">
+                <input onclick="fnPesquisar()" id="botaoGo" type="button" />
+              </label>
               <input
                 id="inputPesquisa"
                 type="text"
                 name="inputPesquisa"
-                placeholder="Pesquisando"
+                placeholder="Pesquisar Descricao Exato"
               />
             </div>
           </div>
@@ -203,39 +183,34 @@
           <div class="janelaBox">
             <span onclick="fecharJanela()" class="close">&times;</span>
             <div>
-              <form
-                id="formularioTemp"
-                method="post"
-                action="........./novapagina........................."
-                target="_blank"
-              >
+              <form id="formularioTemp">
                 <fieldset>
                   <legend>Insira os Dados a Cadastrar</legend>
                   <div>
-                    <label for="idProduto">ID</label>
+                    <label for="idProdutoTemp">ID</label>
                     <input
                       id="idProdutoTemp"
                       type="number"
-                      nome="idProduto"
+                      nome="idProdutoTemp"
                       disabled
                     />
                   </div>
                   <div>
-                    <label for="descricao">Descrição</label>
+                    <label for="descricaoTemp">Descrição</label>
                     <input
                       id="descricaoTemp"
                       type="text"
-                      name="descricao"
+                      name="descricaoTemp"
                       placeholder="nome do produto"
                     />
                   </div>
                   <div>
-                    <label for="categoria">Categoria</label>
+                    <label for="categoriaTemp">Categoria</label>
                     <input
                       list="categorias"
                       id="categoriaTemp"
                       type="text"
-                      name="categoria"
+                      name="categoriaTemp"
                       placeholder="--"
                     />
                     <datalist id="categoriasTemp">
@@ -245,60 +220,60 @@
                   </div>
 
                   <div>
-                    <label for="peso">Peso</label>
+                    <label for="pesoTemp">Peso</label>
                     <input
                       id="pesoTemp"
                       type="number"
                       step="0.01"
-                      name="peso"
+                      name="pesoTemp"
                       placeholder="Peso em kg"
                     />
                   </div>
                   <div>
-                    <label for="altura">Altura</label>
+                    <label for="alturaTemp">Altura</label>
                     <input
                       id="alturaTemp"
                       type="number"
                       step="0.01"
-                      name="altura"
+                      name="alturaTemp"
                       placeholder="Altura em metros"
                     />
                   </div>
                   <div>
-                    <label for="largura">Largura</label>
+                    <label for="larguraTemp">Largura</label>
                     <input
                       id="larguraTemp"
                       type="number"
                       step="0.01"
-                      name="largura"
+                      name="larguraTemp"
                       placeholder="Largura em metros"
                     />
                   </div>
                   <div>
-                    <label for="comprimento">Comprimento</label>
+                    <label for="comprimentoTemp">Comprimento</label>
                     <input
                       id="comprimentoTemp"
                       type="number"
                       step="0.01"
-                      name="comprimento"
+                      name="comprimentoTemp"
                       placeholder="Comprimento em metros"
                     />
                   </div>
                   <div>
-                    <label for="estoque">Estoque</label>
+                    <label for="estoqueTemp">Estoque</label>
                     <input
                       id="estoqueTemp"
                       type="number"
-                      name="estoque"
+                      name="estoqueTemp"
                       placeholder="Quantidade por caixa"
                     />
                   </div>
                   <div>
-                    <label for="dataCadastro">Data do Cadastro</label>
+                    <label for="dataCadastroTemp">Data do Cadastro</label>
                     <input
                       id="dataCadastroTemp"
                       type="date"
-                      name="dataCadastro"
+                      name="dataCadastroTemp"
                     />
                   </div>
 
@@ -307,10 +282,9 @@
                       class="botao"
                       type="button"
                       value="Cadastrar"
-                      onclick="fnCadastrarTemp()"
+                      onclick="fnCadastrar()"
                     />
                     <input
-                      id="botaoEditarTemp"
                       class="botao"
                       type="button"
                       value="Editar"
