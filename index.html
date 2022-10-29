@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script defer src="./assets/js/main.js"></script>
-    <script defer src="./assets/js/tester.js"></script>
 
     <title>Document</title>
   </head>
@@ -105,10 +104,11 @@
               </div>
               <div>
                 <input
+                  id="botaoCadastrar"
                   class="botao"
                   type="button"
                   value="Cadastrar"
-                  onclick="fnCadastrar()"
+                  onclick="fnResetChecker(), fnCadastrar('')"
                 />
                 <input
                   id="botaoReiniciar"
@@ -121,7 +121,7 @@
                   class="botao"
                   type="button"
                   value="Alterar / ID"
-                  onclick="fnAtualizar()"
+                  onclick="fnAtualizar(checker)"
                 />
               </div>
             </fieldset>
@@ -179,9 +179,9 @@
         </div>
       </aside>
       <aside>
-        <div id="janelaTeste" class="janelas">
+        <div id="janelaForm" class="janelas">
           <div class="janelaBox">
-            <span onclick="fecharJanela()" class="close">&times;</span>
+            <span onclick="fnFecharJanela()" class="close">&times;</span>
             <div>
               <form id="formularioTemp">
                 <fieldset>
@@ -282,7 +282,7 @@
                       class="botao"
                       type="button"
                       value="Cadastrar"
-                      onclick="fnCadastrar()"
+                      onclick="fnCadastrar(checker)"
                     />
                     <input
                       class="botao"
@@ -294,7 +294,7 @@
                       class="botao"
                       type="button"
                       value="Alterar / ID"
-                      onclick="fnAtualizar()"
+                      onclick="fnAtualizar(checker)"
                     />
                   </div>
                 </fieldset>
