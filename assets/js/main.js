@@ -1,37 +1,5 @@
-var tr, checker, targetedId, td, i
+var tr, verificaBotao, targetedId, td, i
 let ID = 0
-const tbody = document.querySelector('tbody')
-const janelaPesquisa = document.getElementById('janelaPesquisa')
-const botaoPesquisa = document.getElementById('botaoPesquisa')
-const inputPesquisa = document.getElementById('inputPesquisa')
-const fecharJanela = document.getElementsByClassName('close')[0]
-const botaoReiniciar = document.getElementById('botaoReiniciar')
-const janelaForm = document.getElementById('janelaForm')
-const tabela = document.getElementById('sectionTable')
-const linha = tabela.getElementsByTagName('tr')
-const celula = tabela.getElementsByTagName('td')
-
-const fnAbrirJanela = () => {
-  janelaForm.style.display = 'block'
-}
-
-const fnFecharJanela = () => {
-  janelaForm.style.display = 'none'
-}
-
-botaoPesquisa.onclick = function () {
-  janelaPesquisa.style.display = 'block'
-}
-
-fecharJanela.onclick = function () {
-  checker = ''
-  janelaPesquisa.style.display = 'none'
-}
-
-const fnResetChecker = () => {
-  checker = ''
-}
-
 let arrProduto = [
   'descricao',
   'categoria',
@@ -42,26 +10,63 @@ let arrProduto = [
   'estoque',
   'dataCadastro'
 ]
+const tbody = document.querySelector('tbody')
+const janelaPesquisa = document.getElementById('janelaPesquisa')
+const botaoPesquisa = document.getElementById('botaoPesquisa')
+const inputPesquisa = document.getElementById('inputPesquisa')
+const fecharJanela = document.getElementsByClassName('close')[0]
+const janelaForm = document.getElementById('janelaForm')
+const tabela = document.getElementById('sectionTable')
+const linha = tabela.getElementsByTagName('tr')
 
-let arrProdutoTemp = arrProduto
+const fnResetVerificaBotao = () => {
+  verificaBotao = ''
+}
 
-const fnArrayProduto = checker => {
-  for (let i = 0; i < arrProduto.length; i++) {
-    arrProdutoTemp[i].replace(arrProdutoTemp[i], arrProdutoTemp[i] + checker)
+const fnOnClick = e => {
+  if (
+    e.target.nodeName === 'INPUT' &&
+    e.target.id.substr(0, 14) === 'codBotaoEditar'
+  ) {
+    targetedId = e.target.id
+    verificaBotao = 'Temp'
   }
 }
 
-const produto = checker => {
-  fnArrayProduto(checker)
+botaoPesquisa.onclick = function () {
+  janelaPesquisa.style.display = 'block'
+}
 
-  let descricao = document.getElementById(`${arrProdutoTemp[0]}${checker}`)
-  let categoria = document.getElementById(`${arrProdutoTemp[1]}${checker}`)
-  let peso = document.getElementById(`${arrProdutoTemp[2]}${checker}`)
-  let altura = document.getElementById(`${arrProdutoTemp[3]}${checker}`)
-  let largura = document.getElementById(`${arrProdutoTemp[4]}${checker}`)
-  let comprimento = document.getElementById(`${arrProdutoTemp[5]}${checker}`)
-  let estoque = document.getElementById(`${arrProdutoTemp[6]}${checker}`)
-  let dataCadastro = document.getElementById(`${arrProdutoTemp[7]}${checker}`)
+fecharJanela.onclick = function () {
+  fnResetVerificaBotao()
+  janelaPesquisa.style.display = 'none'
+}
+
+const fnAbrirJanela = () => {
+  janelaForm.style.display = 'block'
+}
+
+const fnFecharJanela = () => {
+  janelaForm.style.display = 'none'
+}
+
+const fnArrayProduto = verificaBotao => {
+  for (let i = 0; i < arrProduto.length; i++) {
+    arrProduto[i].replace(arrProduto[i], arrProduto[i] + verificaBotao)
+  }
+}
+
+const fnProduto = verificaBotao => {
+  fnArrayProduto(verificaBotao)
+
+  let descricao = document.getElementById(`${arrProduto[0]}${verificaBotao}`)
+  let categoria = document.getElementById(`${arrProduto[1]}${verificaBotao}`)
+  let peso = document.getElementById(`${arrProduto[2]}${verificaBotao}`)
+  let altura = document.getElementById(`${arrProduto[3]}${verificaBotao}`)
+  let largura = document.getElementById(`${arrProduto[4]}${verificaBotao}`)
+  let comprimento = document.getElementById(`${arrProduto[5]}${verificaBotao}`)
+  let estoque = document.getElementById(`${arrProduto[6]}${verificaBotao}`)
+  let dataCadastro = document.getElementById(`${arrProduto[7]}${verificaBotao}`)
 
   return {
     descricao: descricao.value.toUpperCase().trim(),
@@ -75,21 +80,21 @@ const produto = checker => {
   }
 }
 
-const descricaoProduto = checker => {
-  produto(checker)
+const fnDescricaoProduto = verificaBotao => {
+  fnProduto(verificaBotao)
   return `
-    Descricao: ${produto(checker).descricao}
-    Categoria: ${produto(checker).categoria}
-    Peso: ${produto(checker).peso}Kg
-    Altura: ${produto(checker).altura}m
-    Largura: ${produto(checker).largura}m
-    Comprimento: ${produto(checker).comprimento}m
-    Estoque: ${produto(checker).estoque} un
-    Data do Cadastro: ${produto(checker).dataCadastro}
+    Descricao: ${fnProduto(verificaBotao).descricao}
+    Categoria: ${fnProduto(verificaBotao).categoria}
+    Peso: ${fnProduto(verificaBotao).peso}Kg
+    Altura: ${fnProduto(verificaBotao).altura}m
+    Largura: ${fnProduto(verificaBotao).largura}m
+    Comprimento: ${fnProduto(verificaBotao).comprimento}m
+    Estoque: ${fnProduto(verificaBotao).estoque} un
+    Data do Cadastro: ${fnProduto(verificaBotao).dataCadastro}
   `
 }
 
-const createMsg = (cod, checker) => {
+const fnCreateMsg = (cod, verificaBotao) => {
   tr = `<tr class="linha" id="cod${cod}">
   <td>
     <div class="icons">
@@ -97,7 +102,7 @@ const createMsg = (cod, checker) => {
         id="codBotaoEditar${cod}"
         class="botaoEditar"
         type="button"
-        onclick="fnAbrirJanela(), document.addEventListener('click', onClick)"  />
+        onclick="fnAbrirJanela(), document.addEventListener('click', fnOnClick)"  />
       <input
         class="botaoExcluir"
         type="button"
@@ -105,25 +110,25 @@ const createMsg = (cod, checker) => {
     </div>
   </td>
   <td>${cod}</td>
-  <td>${produto(checker).descricao}</td>
-  <td>${produto(checker).categoria}</td>
-  <td>${produto(checker).peso}</td>
-  <td>${produto(checker).altura}</td>
-  <td>${produto(checker).largura}</td>
-  <td>${produto(checker).comprimento}</td>
-  <td>${produto(checker).estoque}</td>
-  <td>${produto(checker).dataCadastro}</td>
+  <td>${fnProduto(verificaBotao).descricao}</td>
+  <td>${fnProduto(verificaBotao).categoria}</td>
+  <td>${fnProduto(verificaBotao).peso}</td>
+  <td>${fnProduto(verificaBotao).altura}</td>
+  <td>${fnProduto(verificaBotao).largura}</td>
+  <td>${fnProduto(verificaBotao).comprimento}</td>
+  <td>${fnProduto(verificaBotao).estoque}</td>
+  <td>${fnProduto(verificaBotao).dataCadastro}</td>
 </tr>`
 }
 
-const createTableRow = (tbody, tr) => {
+const fnCreateTableRow = (tbody, tr) => {
   tbody.innerHTML += tr
 }
 
-const confirmar = confirmando => {
+const fnConfirmar = confirmando => {
   if (confirmando == 'c') {
     return confirm(`Deseja mesmo cadastrar o produto?
-    ${descricaoProduto(checker)}
+    ${fnDescricaoProduto(verificaBotao)}
     `)
   }
   if (confirmando == 'e') {
@@ -132,7 +137,7 @@ const confirmar = confirmando => {
   }
   if (confirmando == 'a') {
     return confirm(`Deseja mesmo alterar o produto?
-    ${descricaoProduto(checker)}
+    ${fnDescricaoProduto(verificaBotao)}
     `)
   }
   if (confirmando == 'r') {
@@ -141,35 +146,34 @@ const confirmar = confirmando => {
   }
 }
 
-const fnCadastrar = checker => {
-  let confirmando = 'c'
-  if (confirmar(confirmando)) {
+const fnCadastrar = verificaBotao => {
+  const confirmando = 'c'
+  if (fnConfirmar(confirmando)) {
     ID++
-    createMsg(ID, checker)
-    createTableRow(tbody, tr)
+    fnCreateMsg(ID, verificaBotao)
+    fnCreateTableRow(tbody, tr)
   }
 }
 
 const fnAtualizarItem = cod => {
-  let confirmando = 'a'
-  if (confirmar(confirmando)) {
-    let coder = cod
+  const confirmando = 'a'
+  if (fnConfirmar(confirmando)) {
     let alterar
-    if (coder.substr(0, 3) === 'cod') {
+    if (cod.substr(0, 3) === 'cod') {
       alterar = document.getElementById(cod.id)
-      createMsg(cod.id.replace('cod', ''), checker)
+      fnCreateMsg(cod.id.replace('cod', ''), verificaBotao)
       alterar.innerHTML = tr
     } else {
       alterar = document.getElementById(`cod${cod}`)
-      createMsg(cod, checker)
+      fnCreateMsg(cod, verificaBotao)
       alterar.innerHTML = tr
     }
   }
 }
 
 const fnExcluirItem = cod => {
-  let confirmando = 'e'
-  if (confirmar(confirmando)) {
+  const confirmando = 'e'
+  if (fnConfirmar(confirmando)) {
     const inputCodigo = document.getElementById(cod.id)
     inputCodigo.innerHTML = ''
   }
@@ -177,19 +181,19 @@ const fnExcluirItem = cod => {
 
 const fnReiniciar = () => {
   const confirmando = 'r'
-  if (confirmar(confirmando)) tbody.innerHTML = ''
+  if (fnConfirmar(confirmando)) tbody.innerHTML = ''
   ID = 0
 }
 
-const fnAtualizar = checker => {
+const fnAtualizar = verificaBotao => {
   const inputCodigo = prompt('Digite o codigo do produto: ')
-  let alterar = document.getElementById(`cod${inputCodigo}`)
-  createMsg(inputCodigo, checker)
+  const alterarPorId = document.getElementById(`cod${inputCodigo}`)
+  fnCreateMsg(inputCodigo, verificaBotao)
   tr.replace('id="cod${cod}', 'id="cod${inputCodigo}')
   tr.replace('AtualizarItem(cod${cod})', 'AtualizarItem(cod${inputCodigo})')
   tr.replace('ExcluirItem(cod${cod})', 'ExcluirItem(cod${inputCodigo})')
 
-  alterar.innerHTML = tr
+  alterarPorId.innerHTML = tr
 }
 
 const fnPesquisar = () => {
@@ -215,16 +219,6 @@ const fnLimparFiltro = () => {
   }
 }
 
-const onClick = e => {
-  if (
-    e.target.nodeName === 'INPUT' &&
-    e.target.id.substr(0, 14) === 'codBotaoEditar'
-  ) {
-    targetedId = e.target.id
-    checker = 'Temp'
-  }
-}
-
-function chamaAtualiza(targetedId) {
+const fnchamaAtualiza = targetedId => {
   fnAtualizarItem(targetedId.replace('codBotaoEditar', ''))
 }

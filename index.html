@@ -108,7 +108,7 @@
                   class="botao"
                   type="button"
                   value="Cadastrar"
-                  onclick="fnResetChecker(), fnCadastrar('')"
+                  onclick="fnResetVerificaBotao(), fnCadastrar('')"
                 />
                 <input
                   id="botaoReiniciar"
@@ -118,10 +118,11 @@
                   onclick="fnReiniciar()"
                 />
                 <input
+                  id="botaoAlterar"
                   class="botao"
                   type="button"
                   value="Alterar / ID"
-                  onclick="fnAtualizar(checker)"
+                  onclick="fnResetVerificaBotao(), fnAtualizar(verificaBotao)"
                 />
               </div>
             </fieldset>
@@ -282,7 +283,7 @@
                       class="botao"
                       type="button"
                       value="Cadastrar"
-                      onclick="fnCadastrar(checker)"
+                      onclick="fnCadastrar(verificaBotao)"
                     />
                     <input
                       class="botao"
@@ -294,7 +295,7 @@
                       class="botao"
                       type="button"
                       value="Alterar / ID"
-                      onclick="fnAtualizar(checker)"
+                      onclick="fnAtualizar(verificaBotao)"
                     />
                   </div>
                 </fieldset>
