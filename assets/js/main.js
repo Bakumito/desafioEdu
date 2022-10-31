@@ -1,4 +1,4 @@
-var tr, verificaBotao, targetedId, td, i
+var tr, verificaBotao, targetedId, td, i, importado, msgImportada
 let ID = 0
 let arrProduto = [
   'descricao',
@@ -10,6 +10,7 @@ let arrProduto = [
   'estoque',
   'dataCadastro'
 ]
+
 const tbody = document.querySelector('tbody')
 const janelaPesquisa = document.getElementById('janelaPesquisa')
 const botaoPesquisa = document.getElementById('botaoPesquisa')
@@ -18,6 +19,49 @@ const fecharJanela = document.getElementsByClassName('close')[0]
 const janelaForm = document.getElementById('janelaForm')
 const tabela = document.getElementById('sectionTable')
 const linha = tabela.getElementsByTagName('tr')
+const importador = document.getElementById('importador')
+
+const fnCriaMsgImportada = (cod, importado, i) => {
+  msgImportada = `<tr class="linha" id="cod${cod}">
+<td>
+  <div class="icons">
+    <input
+      id="codBotaoEditar${cod}"
+      class="botaoEditar"
+      type="button"
+      onclick="fnAbrirJanela(), document.addEventListener('click', fnOnClick)"  />
+    <input
+      class="botaoExcluir"
+      type="button"
+      onclick="fnExcluirItem(cod${cod})" />
+  </div>
+</td>
+<td>${cod}</td>
+<td>${importado[i][0]}</td>
+<td>${importado[i][1]}</td>
+<td>${importado[i][2]}</td>
+<td>${importado[i][3]}</td>
+<td>${importado[i][4]}</td>
+<td>${importado[i][5]}</td>
+<td>${importado[i][6]}</td>
+<td>${importado[i][7]}</td>
+</tr>`
+}
+
+const fnTransformaMatriz = () => {
+  importado = importador.value
+  importado = JSON.parse(importado)
+}
+
+const fnImportador = () => {
+  var i
+  fnTransformaMatriz()
+  for (i = 0; i < importado.length; i++) {
+    ID++
+    fnCriaMsgImportada(ID, importado, i)
+    tbody.innerHTML += msgImportada
+  }
+}
 
 const fnResetVerificaBotao = () => {
   verificaBotao = ''

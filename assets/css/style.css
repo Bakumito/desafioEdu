@@ -19,11 +19,11 @@ body {
 
 :root {
   --main-color: #0a2e38;
-  --top: 4rem;
-  --left: 8rem;
+  --top: 3.5rem;
+  --left: 7rem;
 }
 /* ---------- FIM RESET ----------*/
-header, header div, section, form, fieldset div, .icons {  
+header, header div, section, form, fieldset div, .icons, #importContainer {  
 	display: flex;
 }
 
@@ -130,12 +130,12 @@ caption {
 .botao {
 	margin-top: var(--top);
 	height: var(--top);
-	width: var(--left);
+	width: 10rem;
 	text-align: center;
 	border-radius: 15%;
 	background-color: var(--main-color);
 	color: #00e76f;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	font-weight: bold;
 }
 
@@ -152,7 +152,6 @@ caption {
 .botaoExcluir, .botaoEditar, #botaoFiltro, #botaoPesquisa, #botaoGo {
 	height: 3rem;
 	width: 3rem;
-	border-radius: 15%;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
@@ -220,4 +219,9 @@ caption {
   color: #0a5838;
   text-decoration: none;
   cursor: pointer;
+}
+
+textarea {
+	margin: auto;
+	margin-top: var(--top);
 }

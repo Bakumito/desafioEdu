@@ -12,3 +12,11 @@
 1. Acessar o link https://github.com/Bakumito/desafioEdu
 2. baixar o arquivo ZIP
 3. abrir o arquivo index.html
+
+> Caso queira importar dados, siga os passos:
+
+1. abra a planilha na pasta principal do documento.
+2. preencha os dados. É necessario preencher todas as colunas.
+3. Aperte o botão copiar.
+4. Cole o conteudo no campo de texto.
+5. Aperte o botão importar.

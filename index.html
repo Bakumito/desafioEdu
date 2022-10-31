@@ -102,6 +102,14 @@
                 <label for="dataCadastro">Data do Cadastro</label>
                 <input id="dataCadastro" type="date" name="dataCadastro" />
               </div>
+              <div id="importContainer">
+                <textarea
+                  name="importador"
+                  id="importador"
+                  cols="30"
+                  rows="5"
+                ></textarea>
+              </div>
               <div>
                 <input
                   id="botaoCadastrar"
@@ -124,6 +132,14 @@
                   value="Alterar / ID"
                   onclick="fnResetVerificaBotao(), fnAtualizar(verificaBotao)"
                 />
+                <label for="importar"
+                  ><input
+                    id="botaoImportar"
+                    class="botao"
+                    type="button"
+                    value="Importar"
+                    onclick="fnImportador()"
+                /></label>
               </div>
             </fieldset>
           </form>
