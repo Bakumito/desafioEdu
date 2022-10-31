@@ -19,13 +19,19 @@ body {
 
 :root {
   --main-color: #0a2e38;
-  --top: 5rem;
-  --left: 10rem;
+  --top: 4rem;
+  --left: 8rem;
 }
-/* ---------- FIM RESET ----------
----------- INICIO MAIN ---------- */
+/* ---------- FIM RESET ----------*/
 header, header div, section, form, fieldset div, .icons {  
 	display: flex;
+}
+
+header div, footer div {
+	margin: 0 var(--left);
+	color: #00e76f;
+	font-size: 3.2rem;
+	font-weight: bold;
 }
 
 header {
@@ -34,13 +40,6 @@ header {
 	justify-content: space-between;
 	background-color: var(--main-color);
 	border-bottom: 0.5rem solid #446e7a;
-}
-
-header div, footer div {
-	margin: 0 var(--left);
-	color: #00e76f;
-	font-size: 3.2rem;
-	font-weight: bold;
 }
 
 main {
@@ -136,6 +135,7 @@ caption {
 	border-radius: 15%;
 	background-color: var(--main-color);
 	color: #00e76f;
+	font-size: 1.2rem;
 	font-weight: bold;
 }
 
@@ -149,16 +149,16 @@ caption {
 	align-items: baseline;
 }
 
-.botaoExcluir:hover, .botaoEditar:hover, #botaoFiltro:hover, #botaoPesquisa:hover, #botaoGo:hover {
-	background-color: #00e76f;
-}
-
 .botaoExcluir, .botaoEditar, #botaoFiltro, #botaoPesquisa, #botaoGo {
 	height: 3rem;
 	width: 3rem;
 	border-radius: 15%;
 	background-size: contain;
 	background-repeat: no-repeat;
+}
+
+.botaoExcluir:hover, .botaoEditar:hover, #botaoFiltro:hover, #botaoPesquisa:hover, #botaoGo:hover {
+	background-color: #00e76f;
 }
 
 .botaoExcluir {
