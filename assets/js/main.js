@@ -219,6 +219,6 @@ const fnLimparFiltro = () => {
   }
 }
 
-const fnchamaAtualiza = targetedId => {
+const fnChamaAtualiza = targetedId => {
   fnAtualizarItem(targetedId.replace('codBotaoEditar', ''))
 }
