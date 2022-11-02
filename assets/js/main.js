@@ -61,6 +61,7 @@ const fnImportador = () => {
     fnCriaMsgImportada(ID, importado, i)
     tbody.innerHTML += msgImportada
   }
+  importador.value = ''
 }
 
 const fnResetVerificaBotao = () => {
