@@ -201,17 +201,6 @@ th {
 	height: 56.3rem;
 }
 
-/*
-
-
- */
-
- /* #sectionTable, #sectionForm {
-	padding: var(--top) var(--top);
-	overflow: auto;
-} */
-
-
 #inputPesquisa {
   height: 3rem;
   padding: 0 1rem;  
@@ -228,7 +217,7 @@ th {
   z-index: 1;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 111%;
   height: 100%;
   background-color: #0a2e3866;
 }
