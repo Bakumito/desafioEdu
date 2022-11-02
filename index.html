@@ -12,170 +12,169 @@
   </head>
   <body>
     <header>
-      <div>Cadastro de Produtos</div>
+      <div id="headerTitle">Cadastro de Produtos</div>
+      <div id="headerFooter">
+        <div id="headerFooterDiv"></div>
+        <div id="tableTitle">Tabela Produtos</div>
+      </div>
     </header>
     <main>
-      <section>
-        <div id="sectionForm">
-          <form id="formulario">
-            <fieldset>
-              <legend>Insira os Dados a Cadastrar</legend>
-              <div>
-                <label for="idProduto">ID</label>
-                <input id="idProduto" type="number" nome="idProduto" disabled />
-              </div>
-              <div>
-                <label for="descricao">Descrição</label>
-                <input
-                  id="descricao"
-                  type="text"
-                  name="descricao"
-                  placeholder="nome do produto"
-                />
-              </div>
-              <div>
-                <label for="categoria">Categoria</label>
-                <input
-                  list="categorias"
-                  id="categoria"
-                  type="text"
-                  name="categoria"
-                  placeholder="--"
-                />
-                <datalist id="categorias">
-                  <option value="Categoria1"></option>
-                  <option value="Categoria2"></option>
-                  <option value="Categoria3"></option>
-                  <option value="Categoria4"></option>
-                </datalist>
-              </div>
-              <div>
-                <label for="peso">Peso</label>
-                <input
-                  id="peso"
-                  type="number"
-                  step="0.01"
-                  name="peso"
-                  placeholder="Peso em kg"
-                />
-              </div>
-              <div>
-                <label for="altura">Altura</label>
-                <input
-                  id="altura"
-                  type="number"
-                  step="0.01"
-                  name="altura"
-                  placeholder="Altura em metros"
-                />
-              </div>
-              <div>
-                <label for="largura">Largura</label>
-                <input
-                  id="largura"
-                  type="number"
-                  step="0.01"
-                  name="largura"
-                  placeholder="Largura em metros"
-                />
-              </div>
-              <div>
-                <label for="comprimento">Comprimento</label>
-                <input
-                  id="comprimento"
-                  type="number"
-                  step="0.01"
-                  name="comprimento"
-                  placeholder="Comprimento em metros"
-                />
-              </div>
-              <div>
-                <label for="estoque">Estoque</label>
-                <input
-                  id="estoque"
-                  type="number"
-                  name="estoque"
-                  placeholder="Quantidade por caixa"
-                />
-              </div>
-              <div>
-                <label for="dataCadastro">Data do Cadastro</label>
-                <input id="dataCadastro" type="date" name="dataCadastro" />
-              </div>
-              <div id="importContainer">
-                <textarea
-                  name="importador"
-                  id="importador"
-                  cols="30"
-                  rows="5"
-                ></textarea>
-              </div>
-              <div>
-                <input
-                  id="botaoCadastrar"
+      <section id="sectionForm">
+        <form id="formulario">
+          <fieldset>
+            <legend>Dados a Cadastrar</legend>
+            <div>
+              <label for="idProduto">ID</label>
+              <input id="idProduto" type="number" nome="idProduto" disabled />
+            </div>
+            <div>
+              <label for="descricao">Descrição</label>
+              <input
+                id="descricao"
+                type="text"
+                name="descricao"
+                placeholder="nome do produto"
+              />
+            </div>
+            <div>
+              <label for="categoria">Categoria</label>
+              <input
+                list="categorias"
+                id="categoria"
+                type="text"
+                name="categoria"
+                placeholder="--"
+              />
+              <datalist id="categorias">
+                <option value="Categoria1"></option>
+                <option value="Categoria2"></option>
+                <option value="Categoria3"></option>
+                <option value="Categoria4"></option>
+              </datalist>
+            </div>
+            <div>
+              <label for="peso">Peso</label>
+              <input
+                id="peso"
+                type="number"
+                step="0.01"
+                name="peso"
+                placeholder="Peso em kg"
+              />
+            </div>
+            <div>
+              <label for="altura">Altura</label>
+              <input
+                id="altura"
+                type="number"
+                step="0.01"
+                name="altura"
+                placeholder="Altura em metros"
+              />
+            </div>
+            <div>
+              <label for="largura">Largura</label>
+              <input
+                id="largura"
+                type="number"
+                step="0.01"
+                name="largura"
+                placeholder="Largura em metros"
+              />
+            </div>
+            <div>
+              <label for="comprimento">Comprimento</label>
+              <input
+                id="comprimento"
+                type="number"
+                step="0.01"
+                name="comprimento"
+                placeholder="Comprimento em metros"
+              />
+            </div>
+            <div>
+              <label for="estoque">Estoque</label>
+              <input
+                id="estoque"
+                type="number"
+                name="estoque"
+                placeholder="Quantidade por caixa"
+              />
+            </div>
+            <div>
+              <label for="dataCadastro">Data do Cadastro</label>
+              <input id="dataCadastro" type="date" name="dataCadastro" />
+            </div>
+            <div id="importContainer">
+              <label for="importar"
+                ><input
+                  id="botaoImportar"
                   class="botao"
                   type="button"
-                  value="Cadastrar"
-                  onclick="fnResetVerificaBotao(), fnCadastrar('')"
-                />
-                <input
-                  id="botaoReiniciar"
-                  class="botao"
-                  type="button"
-                  value="Reiniciar"
-                  onclick="fnReiniciar()"
-                />
-                <input
-                  id="botaoAlterar"
-                  class="botao"
-                  type="button"
-                  value="Alterar / ID"
-                  onclick="fnResetVerificaBotao(), fnAtualizar(verificaBotao)"
-                />
-                <label for="importar"
-                  ><input
-                    id="botaoImportar"
-                    class="botao"
+                  value="Importar"
+                  onclick="fnImportador()"
+              /></label>
+              <textarea
+                name="importador"
+                id="importador"
+                cols="30"
+                rows="5"
+              ></textarea>
+            </div>
+            <div>
+              <input
+                id="botaoCadastrar"
+                class="botao"
+                type="button"
+                value="Cadastrar"
+                onclick="fnResetVerificaBotao(), fnCadastrar('')"
+              />
+              <input
+                id="botaoReiniciar"
+                class="botao"
+                type="button"
+                value="Reiniciar"
+                onclick="fnReiniciar()"
+              />
+              <input
+                id="botaoAlterar"
+                class="botao"
+                type="button"
+                value="Alterar / ID"
+                onclick="fnResetVerificaBotao(), fnAtualizar(verificaBotao)"
+              />
+            </div>
+          </fieldset>
+        </form>
+      </section>
+      <section id="sectionTable">
+        <table>
+          <thead>
+            <tr>
+              <th>
+                <div class="icons">
+                  <input
+                    id="botaoFiltro"
                     type="button"
-                    value="Importar"
-                    onclick="fnImportador()"
-                /></label>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-        <div id="sectionTable">
-          <table>
-            <caption>
-              Tabela Produtos
-            </caption>
-            <thead>
-              <tr>
-                <th>
-                  <div class="icons">
-                    <input
-                      id="botaoFiltro"
-                      type="button"
-                      onclick="fnLimparFiltro()"
-                    />
-                    <input id="botaoPesquisa" type="button" />
-                  </div>
-                </th>
-                <th>ID</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Peso</th>
-                <th>Altura</th>
-                <th>Largura</th>
-                <th>Comprimento</th>
-                <th>Estoque</th>
-                <th>Data do Cadastro</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-            <tfoot></tfoot>
-          </table>
-        </div>
+                    onclick="fnLimparFiltro()"
+                  />
+                  <input id="botaoPesquisa" type="button" />
+                </div>
+              </th>
+              <th>ID</th>
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th>Peso</th>
+              <th>Altura</th>
+              <th>Largura</th>
+              <th>Comprimento</th>
+              <th>Estoque</th>
+              <th>Data do Cadastro</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+        </table>
       </section>
       <aside>
         <div id="janelaPesquisa" class="janelas">
