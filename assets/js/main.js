@@ -1,4 +1,4 @@
-var tr, verificaBotao, targetedId, td, i, importado, msgImportada
+var tr, verificaBotao, targetedId, td, i, importado, msgImportada, hoje
 let ID = 0
 let arrProduto = [
   'descricao',
@@ -7,8 +7,7 @@ let arrProduto = [
   'altura',
   'largura',
   'comprimento',
-  'estoque',
-  'dataCadastro'
+  'estoque'
 ]
 
 const tbody = document.querySelector('tbody')
@@ -20,6 +19,12 @@ const janelaForm = document.getElementById('janelaForm')
 const tabela = document.getElementById('sectionTable')
 const linha = tabela.getElementsByTagName('tr')
 const importador = document.getElementById('importador')
+
+const fnAgora = () => {
+  hoje = new Date()
+  console.log(hoje.toLocaleString())
+  return hoje.toLocaleString()
+}
 
 const fnCriaMsgImportada = (cod, importado, i) => {
   msgImportada = `<tr class="linha" id="cod${cod}">
@@ -44,7 +49,7 @@ const fnCriaMsgImportada = (cod, importado, i) => {
 <td>${importado[i][4]}</td>
 <td>${importado[i][5]}</td>
 <td>${importado[i][6]}</td>
-<td>${importado[i][7]}</td>
+<td>${fnAgora()}</td>
 </tr>`
 }
 
@@ -103,7 +108,6 @@ const fnArrayProduto = verificaBotao => {
 
 const fnProduto = verificaBotao => {
   fnArrayProduto(verificaBotao)
-
   let descricao = document.getElementById(`${arrProduto[0]}${verificaBotao}`)
   let categoria = document.getElementById(`${arrProduto[1]}${verificaBotao}`)
   let peso = document.getElementById(`${arrProduto[2]}${verificaBotao}`)
@@ -111,7 +115,6 @@ const fnProduto = verificaBotao => {
   let largura = document.getElementById(`${arrProduto[4]}${verificaBotao}`)
   let comprimento = document.getElementById(`${arrProduto[5]}${verificaBotao}`)
   let estoque = document.getElementById(`${arrProduto[6]}${verificaBotao}`)
-  let dataCadastro = document.getElementById(`${arrProduto[7]}${verificaBotao}`)
 
   return {
     descricao: descricao.value.toUpperCase().trim(),
@@ -120,8 +123,7 @@ const fnProduto = verificaBotao => {
     altura: Number(altura.value),
     largura: Number(largura.value),
     comprimento: Number(comprimento.value),
-    estoque: Number(estoque.value),
-    dataCadastro: dataCadastro.value
+    estoque: Number(estoque.value)
   }
 }
 
@@ -135,11 +137,11 @@ const fnDescricaoProduto = verificaBotao => {
     Largura: ${fnProduto(verificaBotao).largura}m
     Comprimento: ${fnProduto(verificaBotao).comprimento}m
     Estoque: ${fnProduto(verificaBotao).estoque} un
-    Data do Cadastro: ${fnProduto(verificaBotao).dataCadastro}
   `
 }
 
 const fnCreateMsg = (cod, verificaBotao) => {
+  fnAgora()
   tr = `<tr class="linha" id="cod${cod}">
   <td>
     <div class="icons">
@@ -162,7 +164,7 @@ const fnCreateMsg = (cod, verificaBotao) => {
   <td>${fnProduto(verificaBotao).largura}</td>
   <td>${fnProduto(verificaBotao).comprimento}</td>
   <td>${fnProduto(verificaBotao).estoque}</td>
-  <td>${fnProduto(verificaBotao).dataCadastro}</td>
+  <td>${fnAgora()}</td>
 </tr>`
 }
 
